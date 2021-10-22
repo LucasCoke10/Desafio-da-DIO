@@ -1,0 +1,204 @@
+
+Comandos básicos de python
+
+Respostas aos comandos em Python 2.7¶
+zip(…)¶
+cria uma tupla com uma combinação sequencial de listas (empacota):
+>>> a = [1,2,3,4,5]
+>>> b = [6,7,8,9,10]
+>>> zip(a,b)
+[(1, 6), (2, 7), (3, 8), (4, 9), (5, 10)]
+>>> c = [11,22,33,44,55]
+>>>zip(a,b,c)
+[(1, 6, 11), (2, 7, 22), (3, 8, 33), (4, 9, 44), (5, 10, 55)]
+reverte uma tupla em listas (desempacota):
+>>> pts = [(0, 0), (1, 0), (1, 1), (2, 1), (2, 2)]
+>>> x, y = zip(*pts)
+>>> print x, y
+(0, 1, 1, 2, 2) (0, 0, 1, 1, 2)
+enumerate(…)¶
+Enumera um objeto iterável. Retorna um contador (x) e o elemento[x] do objeto.
+Exemplo:
+mangueio='caqui'
+>>> for x, letra in enumerate(mangueio):
+>>>    print letra, '(%d)' % x
+c (0)
+a (1)
+q (2)
+u (3)
+i (4)
+range(início, fim, passo)¶
+Cria uma lista sequencial de números.
+Exemplos:
+>>> range(10)
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+>>> range(2,5)
+[2, 3, 4]
+>>> range(1,10,2) #passo=2, pula de 2 em 2
+[1, 3, 5, 7, 9]
+help(…)¶
+O mais importante dos comandos :)
+Aperte a tecla “q” para sair.
+
+type(…)¶
+>>> type('abacate')
+<type 'str'>
+id (…)¶
+Return the identity of an object. This is guaranteed to be unique among simultaneously existing objects. (Hint: it’s the object’s memory address.)
+>>> id(a)
+34434567
+dir(…)¶
+Retorna os atributos (métodos) de um objeto.
+>>> dir('laranja')
+['__add__', '__class__', '__contains__', '__delattr__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__getslice__', '__gt__', '__hash__', '__init__', '__le__', '__len__', '__lt__', '__mod__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmod__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '_formatter_field_name_split', '_formatter_parser', 'capitalize', 'center', 'count', 'decode', 'encode', 'endswith', 'expandtabs', 'find', 'format', 'index', 'isalnum', 'isalpha', 'isdigit', 'islower', 'isspace', 'istitle', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'partition', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill']
+str(…)¶
+Converte uma objeto para texto (string)
+>>> str(12)
+'12'
+int(…)¶
+Converte um objeto para número inteiro
+>>> a= '33'   #uma string
+>>> int(a)
+33
+Atribuições múltiplas¶
+Atribui simultaneamente valores às variáveis!
+
+>>> a = 1
+>>> b = 'jota'
+>>> a, b = b, a
+>>> a
+'jota'
+>>> b
+1
+>>> c, d, e = 'sol'
+>>> c
+'s'
+>>> d
+'o'
+>>> e
+'l'
+input(…)¶
+Abre o prompt para receber um valor. (Em Python 3, a entrada de input é uma string)
+
+>>>idade = input('qual a sua idade? ')
+qual a sua idade? 23
+>>> print ('%d anos' %idade)
+23 anos
+Operadores relacionais e lógicos¶
+Comparadores: é uma pergunta
+a > b – é maior?
+a < b – é menor?
+a == b – é igual?
+a != b – é diferente?
+
+resposta à comparação: (iniciam com maiúscula)
+True – verdadeiro
+False – falso
+
+atenção!
+a = b – não é um comparador, à variável ‘a’ está sendo atribuída o conteúdo da variável ‘b’.
+
+Conectores de comparações:
+and: todas as condições devem ser satisfeitas
+or: pelo menos uma condição deve ser satisfeita
+
+Para repetir os comandos anteriores do interpretador¶
+alt+p ou alt+n
+
+Print¶
+Marcadores¶
+%d – números decimais
+%s – string (texto)
+%f – float (números com vírgula) → %.2f nesse caso o 2 estipula quantas casas decimais serão exibidas
+
+>>> a=5
+>>> b='casas'
+>>> c=1.5
+>>> print ('As %d belas %s têm %f telhados' %(a,b,c))
+As 5 belas casas têm 1.500000 telhados
+Uso com format e função¶
+teste = 639884962
+print('O renavam {} é {}.'.
+format(teste, 'válido' if validar_renavam(teste) else 'inválido'))
+Expressões Condicionais¶
+if¶
+Se a condição for True (verdadeira) então execute comando.
+No caso de haver mais de uma condição fica assim:
+if condição1 and/or condição2:
+    comando
+else¶
+Usado para o caso de a condição testada der False.
+Se a condição for True, execute comando 1; senão (ELSE), execute comando 2.
+if condição:
+    comando1
+else:
+    comando2
+elif¶
+Usado para verificação de vários casos.
+Se a condição1 for True, então execute comando1; se a condição2 for True, execute comando2; senão execute o comando3.
+if condição1:
+    comando1
+elif condição2:
+    comando2
+else:
+    comando3
+Lists¶
+list.count(valor) → conta o número de ocorrências de “valor”
+>>> mangueio = ['banana', 'maca', 'jaca', 'laranja', 'banana']
+>>> mangueio.count('banana')
+2
+list.append(valor) → adiciona “valor” ao final da lista
+>>> mangueio = ['banana', 'maca', 'jaca', 'laranja']
+>>> mangueio.append('melao')
+>>> print mangueio
+['banana', 'maca', 'jaca', 'laranja', 'melao']
+Strings¶
+Strings são concatenáveis através de soma¶
+>>> 'laranja' + ' e amarelo'
+'laranja e amarelo'
+string.split(…)¶
+Separa uma string em uma lista. Se o caractere separador não for especificado, ele usa o espaço por padrão.
+>>> mangueio = 'hoje vieram 3 mangas tommy e 2 mangas palmer'
+>>> mangueio.split()
+['hoje', 'vieram', '3', 'mangas', 'tommy', 'e', '2', 'mangas', 'palmer']
+>>> mangueio.split('manga')
+['hoje vieram 3 ', 's tommy e 2 ', 's palmer']
+Trabalhando com índices em Strings¶
+>>> fruta = 'abatace'
+>>> print fruta [2:]
+atace
+>>> print fruta [1:-1]
+batac
+>>> print fruta[2::2]  # mostra o conteúdo da posição 2 até o final, pulando de 2 em 2
+aae
+>>> print fruta[::-1] # mostra o conteúdo do início até o fim, mas de trás pra frente
+ecataba
+string.find (…)¶
+Encontra a posição onde inicia uma palavra
+>>> mangueio = 'hoje vieram 3 mangas tommy e 2 mangas palmer'
+>>> mangueio.find('manga')
+14
+>>> mangueio.find('manga', 20) #encontra a palavra a partir do índice 20
+31
+>>> mangueio.find('manga', 33)
+-1      # -1 indica que a palavra não foi encontrada
+‘…’.join(variavel)¶
+Junta uma lista numa string. Podemos especificar o separador.
+>>> frutas = ['laranja', 'maca', 'pera']
+>>> ' + '.join(frutas)
+'laranja + maca + pera'
+string.title()¶
+bota a primeira letra de cada palavra da string em maiúscula
+
+string.capitalize()¶
+bota a primeira letra da stirng e maiúscula
+
+‘string’.zfill(n)¶
+Completa uma string com zeros à esquerda até completar n caracteres.
+>>>fruta = 'manga'
+>>>fruta.zfill(10)
+'00000manga'
+GRUPOS
+Python
+PESSOAS
+lulhu
